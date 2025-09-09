@@ -1,0 +1,15 @@
+torch
+torchvision
+torchaudio
+numpy
+scipy
+matplotlib
+pandas
+pillow
+pyyaml
+requests
+tqdm
+click
+easydict
+lpips
+progressbar

@@ -8,8 +8,7 @@ import torch
 import torch.utils.data as data
 
 from os import listdir
-from os.path import join
-from os.path import basename
+from os.path import join, basename, dirname
 from PIL import Image
 from torchvision.datasets.folder import ImageFolder
 
@@ -82,7 +81,7 @@ class FFHQFolder(ImageFolder):
         sample = self.loader(path)
 
         image_num = basename(path).split(".")[0]
-        json_path = join(self.root, "json", f"{image_num}.json")
+        json_path = join(dirname(self.root), "ffhq_json", f"{image_num}.json")
         # print(json_path)
 
         with open(json_path) as json_file:

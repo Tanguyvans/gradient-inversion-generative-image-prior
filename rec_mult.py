@@ -225,7 +225,11 @@ if __name__ == "__main__":
         target_id = args.target_id + i * args.num_images
         tid_list = []
         if args.num_images == 1:
-            ground_truth, labels = validloader.dataset[target_id]
+            # Use training set if validation set is empty
+            if len(validloader.dataset) == 0:
+                ground_truth, labels = trainloader.dataset[target_id]
+            else:
+                ground_truth, labels = validloader.dataset[target_id]
             ground_truth, labels = ground_truth.unsqueeze(0).to(**setup), torch.as_tensor((labels,), device=setup['device'])
             target_id_ = target_id + 1
             print("loaded img %d" % (target_id_ - 1))

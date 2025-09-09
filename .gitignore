@@ -158,3 +158,6 @@ inversefed/genmodels/cifar10_dcgan/weights/*.pkl
 inversefed/genmodels/stylegan2/*.pkl
 *.pdf
 results/*
+
+ffhq_json/*
+ffhq_dataset/*
